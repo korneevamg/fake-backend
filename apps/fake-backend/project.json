@@ -1,0 +1,94 @@
+{
+  "projectType": "application",
+  "root": "apps/fake-backend",
+  "sourceRoot": "apps/fake-backend/src",
+  "prefix": "fake-backend",
+  "targets": {
+    "build": {
+      "executor": "@angular-devkit/build-angular:browser",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/apps/fake-backend",
+        "index": "apps/fake-backend/src/index.html",
+        "main": "apps/fake-backend/src/main.ts",
+        "polyfills": "apps/fake-backend/src/polyfills.ts",
+        "tsConfig": "apps/fake-backend/tsconfig.app.json",
+        "inlineStyleLanguage": "scss",
+        "assets": [
+          "apps/fake-backend/src/favicon.ico",
+          "apps/fake-backend/src/assets"
+        ],
+        "styles": ["apps/fake-backend/src/styles.scss"],
+        "scripts": []
+      },
+      "configurations": {
+        "production": {
+          "budgets": [
+            {
+              "type": "initial",
+              "maximumWarning": "500kb",
+              "maximumError": "1mb"
+            },
+            {
+              "type": "anyComponentStyle",
+              "maximumWarning": "2kb",
+              "maximumError": "4kb"
+            }
+          ],
+          "fileReplacements": [
+            {
+              "replace": "apps/fake-backend/src/environments/environment.ts",
+              "with": "apps/fake-backend/src/environments/environment.prod.ts"
+            }
+          ],
+          "outputHashing": "all"
+        },
+        "development": {
+          "buildOptimizer": false,
+          "optimization": false,
+          "vendorChunk": true,
+          "extractLicenses": false,
+          "sourceMap": true,
+          "namedChunks": true
+        }
+      },
+      "defaultConfiguration": "production"
+    },
+    "serve": {
+      "executor": "@angular-devkit/build-angular:dev-server",
+      "configurations": {
+        "production": {
+          "browserTarget": "fake-backend:build:production"
+        },
+        "development": {
+          "browserTarget": "fake-backend:build:development"
+        }
+      },
+      "defaultConfiguration": "development"
+    },
+    "extract-i18n": {
+      "executor": "@angular-devkit/build-angular:extract-i18n",
+      "options": {
+        "browserTarget": "fake-backend:build"
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "options": {
+        "lintFilePatterns": [
+          "apps/fake-backend/src/**/*.ts",
+          "apps/fake-backend/src/**/*.html"
+        ]
+      }
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/apps/fake-backend"],
+      "options": {
+        "jestConfig": "apps/fake-backend/jest.config.js",
+        "passWithNoTests": true
+      }
+    }
+  },
+  "tags": []
+}

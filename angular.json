@@ -1,0 +1,7 @@
+{
+  "version": 2,
+  "projects": {
+    "fake-backend": "apps/fake-backend",
+    "fake-backend-e2e": "apps/fake-backend-e2e"
+  }
+}
