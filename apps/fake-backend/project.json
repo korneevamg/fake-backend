@@ -56,6 +56,11 @@
     },
     "serve": {
       "executor": "@angular-devkit/build-angular:dev-server",
+      "options": {
+        "browserTarget": "proxy-for-angular:build",
+        "proxyConfig": "proxy.conf.js",
+        "port": 4200
+      },
       "configurations": {
         "production": {
           "browserTarget": "fake-backend:build:production"

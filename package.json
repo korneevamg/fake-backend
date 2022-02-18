@@ -7,7 +7,9 @@
     "postinstall": "node ./decorate-angular-cli.js && ngcc --properties es2015 browser module main",
     "start": "nx serve",
     "build": "nx build",
-    "test": "nx test"
+    "test": "nx test",
+    "fakebackend": "node apps/fake-backend/src/json-server-backend/server.js",
+    "start:fakebackend": "FAKE_BACKEND=true ng serve --ssl=true"
   },
   "private": true,
   "dependencies": {
@@ -20,6 +22,7 @@
     "@angular/platform-browser-dynamic": "~13.2.0",
     "@angular/router": "~13.2.0",
     "@nrwl/angular": "13.8.2",
+    "json-server": "^0.17.0",
     "rxjs": "~7.4.0",
     "tslib": "^2.0.0",
     "zone.js": "~0.11.4"

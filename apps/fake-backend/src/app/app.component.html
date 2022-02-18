@@ -1,1 +1,31 @@
-<fake-backend-nx-welcome></fake-backend-nx-welcome>
+<div class="content-wrapper">
+  <h1>This is a sample application.</h1>
+  <p>
+    Basically, the content of this component is of no particular interest. With
+    this app setup I'd like to demonstrate fake backend options. For this, check
+    out fake-backend folder, FakeBackendInterceptor, proxy.conf.js and
+    project.json.
+  </p>
+  <p>What you should do: {{ sellOrBuySuggestion | async }}</p>
+  <div class="bitcoin-data-grid">
+    <p><strong>short name for market</strong></p>
+    <p><strong>highest bid price</strong></p>
+    <p><strong>lowest ask price</strong></p>
+    <p><strong>highest trade during day</strong></p>
+    <p><strong>total trade volume of day in currency</strong></p>
+    <p><strong>total trade volume of day in BTC</strong></p>
+  </div>
+  <div
+    class="bitcoin-data-grid"
+    *ngFor="let bitcoinDataElement of bitcoinData | async"
+  >
+    <p>{{ bitcoinDataElement.symbol }}</p>
+    <p>{{ bitcoinDataElement.bid }}</p>
+    <p>{{ bitcoinDataElement.ask }}</p>
+    <p>{{ bitcoinDataElement.high }}</p>
+    <p>
+      {{ bitcoinDataElement.currency_volume }} {{ bitcoinDataElement.currency }}
+    </p>
+    <p>{{ bitcoinDataElement.volume }}</p>
+  </div>
+</div>
