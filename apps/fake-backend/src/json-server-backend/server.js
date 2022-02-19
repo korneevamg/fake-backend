@@ -18,7 +18,7 @@ server.use(middlewares);
 server.use(
   jsonServer.rewriter({
     '/api/suggestion': '/suggestion',
-    '/v1/**': '/bitcoinMarketData',
+    '/v1/*': '/bitcoinMarketData',
   })
 );
 

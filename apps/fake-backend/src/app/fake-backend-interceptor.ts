@@ -11,6 +11,9 @@ import { delay, Observable, of } from 'rxjs';
 
 // Inspired by https://medium.com/echohub/angular-httpinterceptor-usage-like-fake-backend-ee20353ded72
 
+/**
+ * @description FAKE BACKEND OPTION: HttpInterceptor. Use HttpInterceptor to intercept the request and change the response. You can chose, which responses to fake.
+ */
 @Injectable()
 export class FakeBackendHttpInterceptor implements HttpInterceptor {
   intercept(

@@ -15,12 +15,19 @@ export class BitcoinMarketDataService {
   public fetchBitcoinData(): Observable<BitcoinMarketData[]> {
     return this.http.get<BitcoinMarketData[]>('/v1/markets.json');
 
+    /**
+     * @description FAKE BACKEND OPTION: Hardcoded values. Refer to the mocked values directly in the code
+     * or store it in a separate file if you have more entries
+     */
     //return of([{...}]);
     //return of(fakeBitcoinData);
 
-    /*return this.http.get<BitcoinMarketData[]>(
+    /**
+     * @description FAKE BACKEND OPTION: Hardcoded values. Use HttpClient to "request" fake data from the file
+     */
+    /*     return this.http.get<BitcoinMarketData[]>(
       'assets/fake-data/fake-bitcoin-data.json'
-    );*/
+    ); */
   }
 
   public fetchSuggestionForBitcoinBusiness() {
